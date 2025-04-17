@@ -5,27 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncollign <ncollign@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 13:08:54 by ncollign          #+#    #+#             */
-/*   Updated: 2025/03/03 13:08:54 by ncollign         ###   ########.fr       */
+/*   Created: 2025/04/17 14:07:29 by ncollign          #+#    #+#             */
+/*   Updated: 2025/04/17 14:07:29 by ncollign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
-#define FIXED_HPP
+# define FIXED_HPP
 
-class Fixed {
-private:
-    int _fixedPointValue;
-    static const int _fractionalBits = 8;
+class Fixed
+{
+	private:
+		int _rawBits;
+		static const int _fractionalBits = 8;
 
-public:
-    Fixed();                        // Constructeur par défaut
-    Fixed(const Fixed &src);        // Constructeur de recopie
-    Fixed &operator=(const Fixed &rhs); // Opérateur d'affectation
-    ~Fixed();                       // Destructeur
+	public:
+		Fixed();
+		Fixed(const Fixed &src);
+		Fixed &operator=(const Fixed &rhs);
+		~Fixed();
 
-    int getRawBits(void) const;     // Récupère la valeur brute
-    void setRawBits(int const raw); // Définit la valeur brute
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
 };
 
 #endif
