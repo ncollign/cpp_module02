@@ -6,7 +6,7 @@
 /*   By: ncollign <ncollign@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:07:29 by ncollign          #+#    #+#             */
-/*   Updated: 2025/04/17 14:07:29 by ncollign         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:53:05 by ncollign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ class Fixed
 		int toInt() const;
 };
 
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif

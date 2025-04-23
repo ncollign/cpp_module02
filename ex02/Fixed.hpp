@@ -6,12 +6,15 @@
 /*   By: ncollign <ncollign@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:07:29 by ncollign          #+#    #+#             */
-/*   Updated: 2025/04/23 18:53:37 by ncollign         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:52:55 by ncollign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
+
+# include <cmath>
+# include <iostream>
 
 class Fixed
 {
@@ -21,12 +24,27 @@ class Fixed
 
 	public:
 		Fixed();
-		Fixed(const Fixed &src);
-		Fixed &operator=(const Fixed &rhs);
+		Fixed(const Fixed &other);
+		Fixed &operator=(const Fixed &other);
 		~Fixed();
+
+		Fixed(const int value);
+		Fixed(const float value);
 
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
+
+		float toFloat() const;
+		int toInt() const;
+
+		bool operator>(const Fixed &other) const;
+		bool operator<(const Fixed &other) const;
+		bool operator>=(const Fixed &other) const;
+		bool operator<=(const Fixed &other) const;
+		bool operator==(const Fixed &other) const;
+		bool operator!=(const Fixed &other) const;
 };
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif

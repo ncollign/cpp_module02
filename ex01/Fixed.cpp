@@ -6,7 +6,7 @@
 /*   By: ncollign <ncollign@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 13:08:50 by ncollign          #+#    #+#             */
-/*   Updated: 2025/03/03 13:08:50 by ncollign         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:57:24 by ncollign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 
 Fixed::Fixed() : _rawBits(0)
 {
-	std::cout << "Default constructor called" << std::endl
+	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-	std::cout << "Copy constructor called" << std::endl
+	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl
-	if (this != other)
-		*this->_rawBits = other.getRawBits();
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &other)
+		this->_rawBits = other.getRawBits();
 	return (*this);
 }
 
@@ -51,31 +51,27 @@ Fixed::Fixed(const float value)
 
 int Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_rawBits);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->_rawBits = raw;
 }
 
 float Fixed::toFloat() const
 {
-	std::cout << "toFloat member function called" << std::endl;
 	float result = this->_rawBits / (float)(1 << _fractionalBits);
 	return (result);
 }
 
-float Fixed::toInt() const
+int Fixed::toInt() const
 {
-	std::cout << "toInt member function called" << std::endl;
 	int result = this->_rawBits >> _fractionalBits;
 	return (result);
 }
 
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 {
     out << fixed.toFloat();
     return (out);
