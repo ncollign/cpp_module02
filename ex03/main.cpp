@@ -6,7 +6,7 @@
 /*   By: ncollign <ncollign@student.42luxembourg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 13:09:13 by ncollign          #+#    #+#             */
-/*   Updated: 2025/04/25 11:32:27 by ncollign         ###   ########.fr       */
+/*   Updated: 2025/04/25 11:35:55 by ncollign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void test(const std::string& description, const Point& a, const Point& b, const 
     std::cout << description << " : " << (bsp(a, b, c, p) ? "Inside" : "Outside") << std::endl;
 }
 
-int main() {
+int main()
+{
 	// Triangle principal
 	Point a(0.0f, 0.0f);
 	Point b(10.0f, 0.0f);
@@ -33,8 +34,8 @@ int main() {
 	Point onVertex(0.0f, 0.0f);
 
 	// Cas subtils
-	Point almostOnEdge(5.0f, 0.0001f);
-	Point almostOnVertex(0.0001f, 0.0001f);
+	Point almostOnEdge(5.0f, 0.01f);
+	Point almostOnVertex(0.01f, 0.01f);
 	Point veryFar(100.0f, 100.0f);
 
 	// Triangle dégénéré (aligné)
@@ -59,5 +60,5 @@ int main() {
 	test("On flat edge", aFlat, bFlat, cFlat, onFlat);
 	test("Near flat edge", aFlat, bFlat, cFlat, nearFlat);
 
-	return 0;
+	return (0);
 }
